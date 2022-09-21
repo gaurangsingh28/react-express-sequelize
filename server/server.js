@@ -8,7 +8,11 @@ let outputPath;
 outputPath = path.resolve(process.cwd(), 'build');
 app.use(publicPath, express.static(outputPath));
 app.use(bodyParser.urlencoded({ extended: false }));
-
+const log = require('aditya-logger');
+log.info('Successful log',{meta:1});
+log.warn('Warning');
+log.error('Error');
+log.error(new Error('Oops something went wrong'));
 const crossMiddleware = cors({
     origin: '*',
     methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
@@ -25,8 +29,11 @@ const crossMiddleware = cors({
 });
 app.use(crossMiddleware);
 app.use('*', crossMiddleware);
-app.get('/*', (req, res) => {
+app.get('/login', (req, res) => {
     res.sendFile(path.resolve(outputPath, 'index.html'));
+});
+app.get('/log', (req, res) => {
+    res.send('Hello');
 });
 
 const PORT = 5050;
