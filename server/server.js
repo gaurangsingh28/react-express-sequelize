@@ -8,6 +8,7 @@ const router = require('../routers');
 let outputPath;
 outputPath = path.resolve(process.cwd(), 'build');
 app.use(publicPath, express.static(outputPath));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 require('dotenv').config();
 const log = require('aditya-logger');

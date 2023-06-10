@@ -4,7 +4,9 @@ const basename = path.basename(__filename); // it will give current file name i.
 const Sequelize = require('sequelize');
 let db = {};
 let url = process.env.DATABASE_CONNECTION_URL || 'postgres://postgres:postgres@localhost:5432/blog';
-const sequelize = new Sequelize(url);
+const sequelize = new Sequelize({
+    dialect: "sqlite"
+  });
 fs
     .readdirSync(__dirname)
     .filter(file => {
