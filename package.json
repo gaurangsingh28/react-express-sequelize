@@ -2,12 +2,13 @@
   "name": "react-express",
   "version": "1.0.0",
   "description": "",
-  "main": "src",
+  "main": "client",
   "scripts": {
-    "start:production": "npm run build && npm run start:prod",
-    "start:prod": "nodemon server/server.js",
+    "start:production": "npm run build && npm run start:server",
+    "start:server": "nodemon server/server.js",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "dev": "npm run start && npm run start:prod"
   },
   "author": "",
   "license": "ISC",
