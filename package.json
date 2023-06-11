@@ -4,12 +4,11 @@
   "description": "",
   "main": "node server/server.js",
   "scripts": {
-    "start:production": "npm run build && npm run start:prod",
-    "start:dev": "nodemon server/server.js",
-    "start:prod":"node server/server.js",
-    "start": "react-scripts start",
+    "start:server": "nodemon server/server.js",
+    "start:prod":"npm run build && node server/server.js",
+    "start:react": "react-scripts start",
     "build": "react-scripts build",
-    "dev": "npm run start && npm run start:prod"
+    "dev": "npm run start:react && npm run start:server"
   },
   "author": "",
   "license": "ISC",
