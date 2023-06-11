@@ -4,16 +4,16 @@
   "description": "",
   "main": "node server/server.js",
   "scripts": {
-    "start:server": "nodemon server/server.js",
+    "server": "npm run build && nodemon server/server.js",
     "start:prod":"npm run build && node server/server.js",
-    "start:react": "react-scripts start",
-    "build": "react-scripts build",
-    "dev": "npm run start:react && npm run start:server"
+    "client": "react-scripts start",
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aditya-logger": "^1.0.0",
+    "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
