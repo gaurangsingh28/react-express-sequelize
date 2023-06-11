@@ -5,17 +5,15 @@ const app = express();
 const cors = require('cors');
 const publicPath = '/';
 const router = require('../routers');
+
 let outputPath;
 outputPath = path.resolve(process.cwd(), 'build');
 app.use(publicPath, express.static(outputPath));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 require('dotenv').config();
+
 const log = require('aditya-logger');
-log.info('Successful log', { meta: 1 });
-log.warn('Warning');
-log.error('Error');
-log.error(new Error('Oops something went wrong'));
 
 const crossMiddleware = cors({
     origin: '*',
@@ -43,7 +41,7 @@ app.get('/log', (req, res) => {
     res.send('Hello');
 });
 
-const PORT = 5050;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log('Server listening at port ', PORT);
+    log.info('Server listening at port ', PORT);
 })
