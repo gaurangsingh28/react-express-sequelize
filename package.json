@@ -2,10 +2,11 @@
   "name": "react-express",
   "version": "1.0.0",
   "description": "",
-  "main": "client",
+  "main": "node server/server.js",
   "scripts": {
-    "start:production": "npm run build && npm run start:server",
-    "start:server": "nodemon server/server.js",
+    "start:production": "npm run build && npm run start:prod",
+    "start:dev": "nodemon server/server.js",
+    "start:prod":"node server/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "dev": "npm run start && npm run start:prod"
